@@ -1,0 +1,67 @@
+
+@startuml TD1.2.1
+'--------------------------------
+' Parametres pour le dessin
+'--------------------------------
+hide circle
+hide empty members
+hide empty methods
+'--------------------------------
+
+class Etudiant {
+  nom
+  prenom
+  noEtu
+  dtn
+}
+
+class Cours {
+  titre
+  codeModule
+}
+
+class Examen {
+  lieu
+  date
+  coef
+  nomExam
+}
+
+class Enseignant {
+  nom
+  prenom
+}
+
+Etudiant "1..*" -- "1..*" Cours
+Etudiant "*" -- "*" Examen
+
+Enseignant "1" -- "1..*" Cours
+Enseignant "1" -- "*" Examen
+
+(Etudiant, Cours) . Suivre
+(Etudiant, Examen) . Participer
+
+(Enseignant, Cours) . Enseigner
+(Enseignant, Examen) . Diriger
+
+class Suivre {
+  nomEtu
+  titreCours
+}
+
+class Participer {
+  nomEtu
+  nomExam
+}
+
+class Enseigner {
+  nomEnseignant
+  titreCours
+}
+
+class Diriger {
+  nomEnseignant
+  nomExam
+}
+
+@enduml
