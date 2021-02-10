@@ -1,5 +1,5 @@
 
-@startuml TD1.2.1
+@startuml TD1.2.1 V2
 '--------------------------------
 ' Parametres pour le dessin
 '--------------------------------
@@ -33,35 +33,17 @@ class Enseignant {
 }
 
 Etudiant "1..*" -- "1..*" Cours
-Etudiant "*" -- "*" Examen
+Cours "1" -- "*" Examen
+
+Etudiant "*" -- "1..*" Examen
 
 Enseignant "1" -- "1..*" Cours
-Enseignant "1" -- "*" Examen
 
-(Etudiant, Cours) . Suivre
-(Etudiant, Examen) . Participer
+(Etudiant, Examen) . Note
 
-(Enseignant, Cours) . Enseigner
-(Enseignant, Examen) . Diriger
-
-class Suivre {
-  nomEtu
-  titreCours
-}
-
-class Participer {
-  nomEtu
-  nomExam
-}
-
-class Enseigner {
-  nomEnseignant
-  titreCours
-}
-
-class Diriger {
-  nomEnseignant
-  nomExam
+class Note {
+  noteSurVingt
+  coef
 }
 
 @enduml
