@@ -1,0 +1,35 @@
+
+@startuml TD1.2.2 V1
+'--------------------------------
+' Parametres pour le dessin
+'--------------------------------
+hide circle
+hide empty members
+hide empty methods
+'--------------------------------
+
+class OrdiPortable {
+  prixAchat
+  valeurActuelle
+}
+
+class Clavier {
+  type
+}
+
+class Touche {
+  valeur
+}
+
+class Proprietaire {
+  nom
+  prenom
+}
+
+Proprietaire "1" -- "1..*" OrdiPortable
+OrdiPortable "1" -- "1" Clavier
+Touche "*" -- "1" Clavier
+
+
+
+@enduml
