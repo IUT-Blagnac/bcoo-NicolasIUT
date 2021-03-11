@@ -1,0 +1,52 @@
+@startuml TD2.1.1
+'--------------------------------
+' Parametres pour le dessin
+'--------------------------------
+hide circle
+hide empty members
+hide empty methods
+'--------------------------------
+
+
+class Chien {
+  nom
+  dateDeNaissance
+  sexe
+  
+}
+
+class Proprietaire {
+  nom
+  adresse
+}
+
+class ListeRacesChien {
+  
+}
+
+class DatePossession {
+  
+}
+
+class ListeConcours {
+  ville
+  date
+}
+
+class ListeChiensConcours {
+  
+}
+
+Proprietaire "1" -- "0..10" Chien
+
+Chien --|> ListeRacesChien
+
+ListeConcours "1" -- "1" ListeChiensConcours
+
+Chien --|> ListeChiensConcours
+
+(Chien, Proprietaire) . DatePossession
+
+
+
+@enduml
