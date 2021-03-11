@@ -4,7 +4,7 @@ TD/TP 2020 du cours de BCOO (M2105)
 ## Identification
 :warning: Remplacer vos nom/prénoms/groupe dans ce qui suit :
 
-### NOM : Ferraye
+### NOM : FERRAYE
 ### Prénom : Nicolas
 ### Groupe de TP : 1A
 - [x] 1
