@@ -1,0 +1,52 @@
+@startuml TD2.2.1
+'--------------------------------
+' Parametres pour le dessin
+'--------------------------------
+hide circle
+hide empty members
+hide empty methods
+'--------------------------------
+
+
+class Chien {
+  nom
+  numero
+  dateDeNaissance
+  sexe
+}
+
+class Proprietaire {
+  nom
+  adresse
+}
+
+class Posseder {
+  datePosseder
+}
+
+class Participer {
+	dateParticiper
+}
+
+class Concours {
+  classement
+  participants
+}
+
+class Ville {
+	dateOrg
+}
+
+Chien -- "1" Race
+
+Proprietaire "0..*" --- "1..10" Chien
+Concours "0..1" -- "*" Ville
+Concours "0..10" --- "2..*" Chien
+
+
+(Concours, Chien) . Participer
+(Proprietaire, Chien) . Posseder
+
+
+
+@enduml
