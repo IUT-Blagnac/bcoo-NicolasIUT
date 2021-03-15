@@ -36,15 +36,15 @@ class Stage {
   theme
 }
 
-class grTP {
+class GrTP {
   
 }
 
-class grTD {
+class GrTD {
   
 }
 
-class promo {
+class Promo {
   
 }
 
@@ -52,24 +52,32 @@ class Proposer {
   
 }
 
-class Participe {
+class Travailler {
+  note
+}
+
+class Etudier {
   
 }
 
-class Etudie {
+class Superviser {
   
 }
 
-grTP --|> grTD
-grTD --|> promo
+GrTP --|> GrTD
+GrTD --|> Promo
 
-Etudiant -- grTP
-(Etudiant, grTP) . Etudie
+Etudiant -- GrTP
+
+Enseignant "*" -- "*" Etudiant
 
 Entreprise "1" -- "*" Stage
 Etudiant "1" -- "0..1" Stage
 
+(Etudiant, GrTP) . Etudier
 (Entreprise, Stage) . Proposer
+(Etudiant, Stage) . Travailler
+(Enseignant, Etudiant) . Superviser
 
 
 
