@@ -1,0 +1,48 @@
+@startuml TD3.1.1
+'--------------------------------
+' Parametres pour le dessin
+'--------------------------------
+hide circle
+hide empty members
+hide empty methods
+'--------------------------------
+
+'usecase recenser as "Recenser les demandes de stage"
+
+class Entreprise {
+  nom
+  adresse
+  siegeSocial
+}
+
+class Etudiant {
+  numINE
+  nom
+  prenom
+  moyenneG
+}
+
+class Enseignant {
+  nom
+  prenom
+  specialite
+}
+
+class grTP {
+  
+}
+
+class grTD {
+  
+}
+
+class promo {
+  
+}
+
+
+
+
+
+
+@enduml
