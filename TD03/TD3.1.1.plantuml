@@ -28,6 +28,14 @@ class Enseignant {
   specialite
 }
 
+class Stage {
+  lieu,
+  dates
+  entreprise
+  nomTuteurEntreprise
+  theme
+}
+
 class grTP {
   
 }
@@ -40,8 +48,16 @@ class promo {
   
 }
 
+class Proposer {
+  
+}
 
+grTP --|> grTD
+grTD --|> promo
 
+Entreprise -- Stage
+
+(Entreprise, Stage) . Proposer
 
 
 
