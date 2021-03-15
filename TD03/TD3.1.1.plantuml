@@ -19,7 +19,6 @@ class Etudiant {
   numINE
   nom
   prenom
-  moyenneG
 }
 
 class Enseignant {
@@ -64,10 +63,15 @@ class Superviser {
   
 }
 
+class MoyenneG {
+  moyenneGenerale
+}
+
 GrTP --|> GrTD
 GrTD --|> Promo
 
-Etudiant -- GrTP
+Etudiant "1" -- "1" GrTP
+Etudiant "1" -- "1" MoyenneG
 
 Enseignant "*" -- "*" Etudiant
 
