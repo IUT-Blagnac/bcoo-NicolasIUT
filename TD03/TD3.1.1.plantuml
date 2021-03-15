@@ -52,10 +52,22 @@ class Proposer {
   
 }
 
+class Participe {
+  
+}
+
+class Etudie {
+  
+}
+
 grTP --|> grTD
 grTD --|> promo
 
-Entreprise -- Stage
+Etudiant -- grTP
+(Etudiant, grTP) . Etudie
+
+Entreprise "1" -- "*" Stage
+Etudiant "1" -- "0..1" Stage
 
 (Entreprise, Stage) . Proposer
 
