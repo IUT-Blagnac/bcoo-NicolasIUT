@@ -1,1 +1,26 @@
+@startuml TD3.1.1
 
+
+actor EtablissementScolaire
+actor Enseignant
+actor Etudiant
+
+usecase (Réservation) as reserv
+usecase (Examine la disponibilité) as examDispo
+
+usecase (Réservation des salles) as reservSalles
+usecase (Réservation du matériel) as reservMat
+
+usecase (Planning des salles) as planning
+
+Enseignant -> examDispo
+
+examDispo -> reserv
+
+reservSalles --|> reserv
+reservSalles --|> reservMat
+
+
+
+
+@enduml
