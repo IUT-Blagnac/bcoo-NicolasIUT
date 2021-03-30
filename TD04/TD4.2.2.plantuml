@@ -1,1 +1,28 @@
+@startuml TD4.2.2
 
+
+actor Client
+
+usecase passerR as (Passer dans les rayons)
+usecase demandeR as (Demander des renseignements)
+usecase procederE as (Procéder à des essais)
+usecase prendreA as (Prendre des articles)
+usecase stockSuff as (Vérifier si le stock est suffisant)
+
+usecase reglerA as (Régler ses achats)
+usecase moyenP as (Régler avec moyen de payement)
+usecase reglerAvReduc as (Régler avec réduction)
+
+prendreA .> stockSuff <<include>>
+Client -> passerR
+passerR <.. demandeR: <<extend>>
+passerR <..procederE: <<extend>>
+Client ---> prendreA
+
+reglerA <-- Client
+moyenP --|> reglerAvReduc
+reglerAvReduc --|> reglerA
+
+
+
+@enduml
