@@ -1,25 +1,17 @@
-@startuml TD3.1.1
+@startuml TD4.2.1
 
 
-actor EtablissementScolaire
 actor Enseignant
 actor Etudiant
+actor EnseignantResponsable
 
-usecase (Réservation) as reserv
-usecase (Examine la disponibilité) as examDispo
+Enseignant <|-- EnseignantResponsable
 
-usecase (Réservation des salles) as reservSalles
-usecase (Réservation du matériel) as reservMat
-
-usecase (Planning des salles) as planning
-
-Enseignant -> examDispo
-
-examDispo -> reserv
-
-reservSalles --|> reserv
-reservSalles --|> reservMat
-
+Enseignant -- (Réserver des salles \n et du matériel)
+Enseignant -- (Consulter planning des salles)
+Etudiant -- (Consulter planning des salles)
+Enseignant -- (Consulter recapitulatif horaires)
+EnseignantResponsable -- (Editer recapitulatif horaire)
 
 
 
