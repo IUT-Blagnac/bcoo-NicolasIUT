@@ -1,35 +1,56 @@
-@startuml TD5.2.1
+@startuml
 
+'autonumber
+hide footbox
 
-participant client as ":Client"
-participant caissier as ":Caissier"
-participant caisse as ":Caisse"
+participant A as ":Client"
+participant B as ":Caissier"
 
+participant C as ":Caisse"
+A -> B: arrive
+activate B
 
-client -> caisse: arriver
+participant Tapis as ":Tapis"
 
-activate caissier
-
-participant tapis as ":Tapis"
-
-client -> tapis: deposerArticles
-
-activate tapis
+A -> Tapis: deposerArticles
+activate Tapis
 
 loop "Pour chaque article a"
-  caissier -> tapis: prendreArticle
-  caissier -> caisse: scan(client)
-  activate caisse
-
-  participant article as "a:article"
-
-  par caisse --> article: getPrix()
-  caisse --> article: getLibellé()
+  B -> Tapis: prendreArticle
+  B -> C: scan(a)
+  activate C
+  
+  participant Article as "a:Article"
+  
+  par
+  C --> Article: getPrix()
+  C --> Article: getLibellé()
 
   else
-  opt
+  opt "qté > 1"
+    B -> C: saisir(Qté)
+  end
+  end
+  C --> A: prix et libellé
+  C --> B: prix et libellé
 
+  C -> C: montantTotal += prix * qté
+end
 
+  B -> C: fin
+  C --> B: montant total
+  B --> A: montant total
 
+  A -> B : payer en liquide (s)
+  B -> C : encaisser (s)
 
+  C --> B : reste à rendre
+  B -> A : rendre (reste)
+
+  C -> C : enregistrer
+  C --> B : imprimer ticket
+
+  B --> A : donner ticket
+  
+  
 @enduml
