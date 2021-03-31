@@ -1,1 +1,21 @@
+@startuml TD5.2.1
 
+
+participant client as ":Client"
+participant caissier as ":Caissier"
+participant caisse as ":Caisse"
+
+
+client -> caisse: arriver
+
+activate caissier
+
+participant tapis as ":Tapis"
+
+client -> tapis: deposerArticles
+
+
+
+
+
+@enduml
