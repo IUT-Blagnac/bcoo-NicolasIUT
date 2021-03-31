@@ -14,6 +14,20 @@ participant tapis as ":Tapis"
 
 client -> tapis: deposerArticles
 
+activate tapis
+
+loop "Pour chaque article a"
+  caissier -> tapis: prendreArticle
+  caissier -> caisse: scan(client)
+  activate caisse
+
+  participant article as "a:article"
+
+  par caisse --> article: getPrix()
+  caisse --> article: getLibellé()
+
+  else
+  opt
 
 
 
